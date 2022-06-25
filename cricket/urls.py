@@ -17,6 +17,8 @@ urlpatterns = [
     path('sha256', views.sha256,name="sha256"),
     path('sha1', views.sha1,name="sha1"),
     path('md5', views.md5,name="md5"),
+    path('viewfiles', views.viewfiles,name="view_files"),
+
 ]
 
 
