@@ -80,6 +80,32 @@ def uploadfile(request):
 def registration(request):
     return render(request,'registration.html')
 
+#
+# def viewfiles(request):
+#     data=validfiles.objects.get(id=5)
+#     paths=[]
+#
+#     print(data.myfile.path)
+#     return render(request,'viewfiles.html')
+
+def viewfiles(request):
+    data=validfiles.objects.all()
+    paths=[]
+    names=[]
+    name_clean=[]
+    for idx,item in enumerate(data):
+        paths.append(item.myfile.url)
+        names.append((item.myfile.name))
+    for idx,item in enumerate(names):
+        name_clean.append(item.split('/')[-1])
+    print(len(paths))
+    print(len(name_clean))
+    context={}
+    data1=list(tuple(zip(paths,name_clean)))
+    context['data']=data1
+
+    return render(request,'viewfiles.html',context=context)
+
 def adduser(request):
     if request.method == 'POST':
         name = request.POST['name']
@@ -127,7 +153,6 @@ def sha256(request):
     print("sha256")
     if request.method=="POST":
         store=request.FILES['file']
-
         records=sha256hash.objects.all()
 
         myfile = request.FILES['file'].read()
