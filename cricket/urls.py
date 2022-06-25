@@ -11,7 +11,9 @@ urlpatterns = [
     path('uploaddata', views.uploaddata,name="upload data"),
     path('getfile', views.getfile,name="get file"),
     path('uploadfile', views.uploadfile,name="upload file"),
+    path('registration', views.registration,name="registration"),
+    path('adduser', views.adduser,name="add_user"),
+    path('loginuser', views.loginuser,name="loginuser"),
 ]
-
 
 
