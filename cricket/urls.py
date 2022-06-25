@@ -14,6 +14,11 @@ urlpatterns = [
     path('registration', views.registration,name="registration"),
     path('adduser', views.adduser,name="add_user"),
     path('loginuser', views.loginuser,name="loginuser"),
+    path('sha256', views.sha256,name="sha256"),
+    path('sha1', views.sha1,name="sha1"),
+    path('md5', views.md5,name="md5"),
 ]
+
+
 
 
