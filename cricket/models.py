@@ -1,3 +1,4 @@
+
 from django.db import models
 
 # Create your models here.
@@ -15,6 +16,16 @@ class filedatacheck(models.Model):
     sha1 = models.CharField(max_length=400)
     sha256 = models.CharField(max_length=400)
     md5=models.CharField(max_length=400)
+
+class userprofile(models.Model):
+    name=models.CharField(max_length=200)
+    username=models.CharField(max_length=200)
+    email=models.CharField(max_length=200)
+    password=models.CharField(max_length=200)
+
+
+
+
 
 
 
