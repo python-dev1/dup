@@ -1,4 +1,3 @@
-
 from django.db import models
 
 # Create your models here.
@@ -23,8 +22,14 @@ class userprofile(models.Model):
     email=models.CharField(max_length=200)
     password=models.CharField(max_length=200)
 
+class sha256hash(models.Model):
+    value=models.CharField(max_length=400)
 
+class sha1hash(models.Model):
+    value=models.CharField(max_length=400)
 
+class md5hash(models.Model):
+    value=models.CharField(max_length=400)
 
 
 
