@@ -10,6 +10,7 @@ class filedata(models.Model):
     myfile=models.FileField(upload_to='documents/%Y/%m/%d')
 
 
+
 class filedatacheck(models.Model):
     myfile=models.FileField(upload_to='documents/%Y/%m/%d')
     sha1 = models.CharField(max_length=400)
@@ -30,6 +31,12 @@ class sha1hash(models.Model):
 
 class md5hash(models.Model):
     value=models.CharField(max_length=400)
+
+class dataset(models.Model):
+    myfile=models.FileField(upload_to='documents/%Y/%m/%d')
+
+class validfiles(models.Model):
+    myfile=models.FileField(upload_to='documents/%Y/%m/%d')
 
 
 
