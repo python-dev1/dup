@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import player,filedatacheck
+from .models import player,filedatacheck,userprofile
 
 # Create your views here.
 
@@ -73,4 +73,45 @@ def getfile(request):
 
 def uploadfile(request):
     return render(request,'uploadfile.html')
+
+def registration(request):
+    return render(request,'registration.html')
+
+def adduser(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        username = request.POST['name']
+        email = request.POST['email']
+        password = request.POST['password']
+        userdata=userprofile(name=name,username=username,email=email,password=password)
+        userdata.save()
+        context={}
+        return render(request, 'index.html')
+
+
+def loginuser(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        flag=False
+        u=[]
+        p=[]
+        records=list(userprofile.objects.values())
+        for item in records:
+            u.append(item['username'])
+            p.append(item['password'])
+        idx1=0
+        for idx,item in enumerate(u):
+            if username==item:
+                idx1=idx
+
+        if p[idx1]==password:
+            flag=True
+        else:
+            flag=False
+
+        if flag==True:
+            return render(request, 'uploadfile.html')
+        else:
+            return render(request, 'index.html')
 
