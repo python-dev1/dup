@@ -10,6 +10,69 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <style>
+        HTML,
+BODY {
+  height: 100%;
+}
+
+.webcoderskull {
+  font-size: 0.5em;
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+   background: #000;
+  background-size: 0.12em 100%;
+  font: 16em/1 Arial;
+}
+
+.webcoderskull-1 {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 7% 28%;
+  stroke-width: 3px;
+  -webkit-animation: stroke-offset 7s infinite linear;
+          animation: stroke-offset 7s infinite linear;
+}
+.webcoderskull-1:nth-child(1) {
+  stroke: #360745;
+  stroke-dashoffset: 7%;
+}
+.webcoderskull-1:nth-child(2) {
+  stroke: #d61c59;
+  stroke-dashoffset: 14%;
+}
+.webcoderskull-1:nth-child(3) {
+  stroke: #e7d84b;
+  stroke-dashoffset: 21%;
+}
+.webcoderskull-1:nth-child(4) {
+  stroke: #efeac5;
+  stroke-dashoffset: 28%;
+}
+.webcoderskull-1:nth-child(5) {
+  stroke: #1b8798;
+  stroke-dashoffset: 35%;
+}
+
+@-webkit-keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+  }
+}
+
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+  }
+}
+
+
+
         html, body {
   max-width: 100%;
   overflow-x: hidden;
@@ -44,6 +107,12 @@ border-bottom-right-radius: .3rem;
 
     </head>
     <body>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 
 
             <header id="main-header" class="py-2 bg-primary text-white" >
@@ -96,8 +165,11 @@ border-bottom-right-radius: .3rem;
                   </nav>
 
 
+
                         <div class="row justify-content-center">
                     <div class="col-md-6 ">
+
+
 <br><br>
 <section class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
@@ -170,6 +242,45 @@ border-bottom-right-radius: .3rem;
     <!-- Default form login -->
 
 </br></br>
+
+
+
+
+
+<svg viewBox="0 0 1800 600">
+  <symbol id="s-text">
+    <text text-anchor="middle"
+          x="50%"
+          y="35%"
+          class="webcoderskull"
+          >
+      DUPLICATE
+    </text>
+    <text text-anchor="middle"
+          x="50%"
+          y="68%"
+          class="text--line"
+          >
+     FILE CHECKER
+    </text>
+
+  </symbol>
+
+  <g class="g-ants">
+    <use xlink:href="#s-text"
+      class="webcoderskull-1"></use>
+    <use xlink:href="#s-text"
+      class="webcoderskull-1"></use>
+    <use xlink:href="#s-text"
+      class="webcoderskull-1"></use>
+    <use xlink:href="#s-text"
+      class="webcoderskull-1"></use>
+    <use xlink:href="#s-text"
+      class="webcoderskull-1"></use>
+  </g>
+
+
+</svg>
 
 <div style="text-align: center;">
     <hr>
