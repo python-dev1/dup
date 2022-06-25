@@ -1,6 +1,12 @@
-from django.shortcuts import render
-from .models import player,filedatacheck,userprofile
 
+
+
+
+
+
+from django.shortcuts import render
+from .models import player,filedatacheck,userprofile,sha1hash,sha256hash,md5hash,filedata
+import hashlib
 # Create your views here.
 
 import hashlib
@@ -114,4 +120,101 @@ def loginuser(request):
             return render(request, 'uploadfile.html')
         else:
             return render(request, 'index.html')
+
+
+def sha256(request):
+    print("sha256")
+    if request.method=="POST":
+        hashes=[]
+        records = list(sha256hash.objects.values())
+        for item in records:
+            hashes.append(item['value'])
+        print(hashes)
+
+
+        myfile = request.FILES['file'].read()
+        h = hashlib.sha256()  # Construct a hash object using our selected hashing algorithm
+        h.update(myfile)
+        hash_value=h.hexdigest()
+        if hash_value in hashes:
+            print("File can not be inserted since it already exist in the database")
+            return render(request, 'file_failure.html')
+        else:
+            datas=sha256hash(value=hash_value)
+            datas.save()
+            print("File is uploaded in the database successfully")
+            x=filedata(myfile=myfile)
+            x.save()
+            return render(request, 'file_success.html')
+
+
+
+
+# def sha256(request):
+#     print("sha256")
+#     if request.method=="POST":
+#         myfile=request.FILES['file'].read()
+#         print(type(myfile))
+#         print(myfile)
+#         data1=myfile.decode(encoding="utf-8")
+#         print(type(data1))
+#         h = hashlib.sha256()
+#         h.update(data1.encode('utf-8'))
+#         hashvalue=h.hexdigest()
+#         print(hashvalue)
+#
+#         return render(request, 'index.html')
+
+def sha1(request):
+    if request.method == "POST":
+        hashes = []
+        records = list(sha1hash.objects.values())
+        for item in records:
+            hashes.append(item['value'])
+        print(hashes)
+
+        myfile = request.FILES['file'].read()
+        h = hashlib.sha1()  # Construct a hash object using our selected hashing algorithm
+        h.update(myfile)
+        hash_value = h.hexdigest()
+        if hash_value in hashes:
+            print("File can not be inserted since it already exist in the database")
+            return render(request, 'file_failure.html')
+        else:
+            datas = sha1hash(value=hash_value)
+            datas.save()
+            print("File is uploaded in the database successfully")
+            x = filedata(myfile=myfile)
+            x.save()
+            return render(request, 'file_success.html')
+
+def md5(request):
+    if request.method == "POST":
+        hashes = []
+        records = list(md5hash.objects.values())
+        for item in records:
+            hashes.append(item['value'])
+        print(hashes)
+
+        myfile = request.FILES['file'].read()
+        h = hashlib.md5()  # Construct a hash object using our selected hashing algorithm
+        h.update(myfile)
+        hash_value = h.hexdigest()
+        if hash_value in hashes:
+            print("File can not be inserted since it already exist in the database")
+            return render(request, 'file_failure.html')
+        else:
+            datas = md5hash(value=hash_value)
+            datas.save()
+            print("File is uploaded in the database successfully")
+            x = filedata(myfile=myfile)
+            x.save()
+            return render(request, 'file_success.html')
+
+
+
+
+
+
+
 
