@@ -11,19 +11,107 @@
 
         <style>
 
+        body {
+    margin:  0;
+    padding:  0;
+    font-family:  arial;
+    background-color:  #262626;
+}
+
+.loader {
+    position:  absolute;
+    left:  50%;
+    top:  50%;
+    transform:  translate(-50%, -50%);
+}
+
+.loader h1 {
+    background-image: url(http://res.cloudinary.com/imranfakhrul/image/upload/v1524761072/ryba2.png);
+    margin:  0;
+    color:  rgba(255, 255, 255, 0.2);
+    font-size: 70px;
+    padding: 61px;
+    animation: animate 1s linear infinite;
+    background-repeat-y:  no-repeat;
+    background-repeat-x:  repeat;
+    -webkit-background-clip: text;
+}
+
+@keyframes animate{
+    0%{
+        background-position: left 0 top -30px;
+    }
+    20%{
+        background-position: left 800px top -20px;
+    }
+    40%{
+        background-position: left 1800px top -10px;
+    }
+    60%{
+        background-position: left 24000px top 0px;
+    }
+    80%{
+        background-position: left 3400px top -10px;
+    }
+    100%{
+        background-position: left 4400px top -20px;
+    }
+}
+
 body { padding-bottom: 70px; }
         html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-
+.red{color:red;}
+.rotate{animation:mk22_rotate 1s linear infinite;}
+@keyframes mk22_rotate{
+    from{transform:rotate(270deg)}
+    to{transform:rotate(360deg)}
+}
+@keyframes mk22_move{
+    from{transform:translateX(-100px)}
+    to{transform:translateX(1200px)}
+}
+.image_set{animation:mk22_move 20s linear infinite;border-radius:50%;margin-top:40px;}
 
         </style>
 
 
     </head>
     <body>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+        <div class="loader">
+            <h1>UPLOAD FILES.....</h1>
+        </div>
+    </div>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="container">
+	<h2 style="text-align:center">DUP CHECKER <span class="red">DUPLICATES</span> <span class="red">CHECKER</span>ALGOS</h2>
+	<p style="text-align:center">DUPLICATE FILE CHECKER</p>
+	<hr>
+	<div class="row">
+	    <div class="image_set">
+	<img class="rotate" src="https://img.icons8.com/color/180/rgb-circle-1.png" width="200" alt="milind kamthe"/>
+	</div>
+	</div>
+</div>
+
 
 
             <header id="main-header" class="py-2 bg-primary text-white" >
@@ -89,7 +177,9 @@ body { padding-bottom: 70px; }
 <form method="POST" enctype="multipart/form-data" action="sha256" name="sha256form">
 {% csrf_token %}
   <input type="file" name="file" class="btn btn-primary btn-lg btn-block" style="height: 40%;"><h2>Add File to check duplicate using SHA 256</h2></input>
-    <input type="submit" value="submit">
+      <div class="col-md-12 text-center">
+        <input type="submit" value="submit" class="btn btn-outline-secondary">
+       </div>
 </form>
 
 <br><br>
@@ -97,7 +187,9 @@ body { padding-bottom: 70px; }
 <form method="POST" enctype="multipart/form-data" action="sha1" name="sha1form">
   {% csrf_token %}
     <input type="file" name="file" class="btn btn-primary btn-lg btn-block" style="height: 40%;"><h2>Add File to check duplicate using SHA 1</h2></input>
-        <input type="submit" value="submit">
+       <div class="col-md-12 text-center">
+        <input type="submit" value="submit" class="btn btn-outline-secondary">
+       </div>
 
   </form>
 
@@ -105,7 +197,9 @@ body { padding-bottom: 70px; }
 <form method="POST" enctype="multipart/form-data" action="md5" name="md5form">
   {% csrf_token %}
     <input type="file" name="file" class="btn btn-primary btn-lg btn-block" style="height: 40%;"><h2>Add File to check duplicate using MD5</h2></input>
-        <input type="submit" value="submit">
+           <div class="col-md-12 text-center">
+        <input type="submit" value="submit" class="btn btn-outline-secondary">
+       </div>
 
   </form>
 
