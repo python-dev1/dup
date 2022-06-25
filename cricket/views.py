@@ -114,7 +114,11 @@ def loginuser(request):
             flag=False
 
         if flag==True:
-            return render(request, 'uploadfile.html')
+            context={}
+            context['user']=username
+            from datetime import datetime
+            context['date']=datetime.today().strftime('%Y-%m-%d')
+            return render(request, 'uploadfile.html',context)
         else:
             return render(request, 'index.html')
 
